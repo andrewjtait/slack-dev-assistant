@@ -1,9 +1,11 @@
 ### Testing Locally:
 
 * `npm install`
-* `node index.js`
+* `npm start`
 
 Visit [http://localhost:3600](http://localhost:3600)
+
+(if you kill the server, use `npm restart` to stop and start the db properly)
 
 ### Testing with Slack:
 

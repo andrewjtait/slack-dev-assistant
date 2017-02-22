@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start-db && npm run start-server",
+    "stop": "npm run stop-db",
+    "start-db": "mongod --fork --logpath logs/mongodb.log --dbpath data",
+    "stop-db": "mongo admin --eval 'db.shutdownServer()' > /dev/null",
+    "start-server": "node index.js",
+    "start-debug": "node debug index.js",
+    "debug": "npm stop && npm run start-db && npm run start-debug"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +19,7 @@
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "lodash": "^4.17.4",
+    "mongodb": "^2.2.24",
     "octonode": "^0.7.9"
   }
 }
